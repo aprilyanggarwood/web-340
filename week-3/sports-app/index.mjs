@@ -1,5 +1,12 @@
-// import { findTeams, findTeam, getGame } from "./team-manager.mjs";
-import { findTeams } from "./team-manager.mjs";
+/*
+  Title: Assignment 3.2 - Node's Module System
+  Author: April Yang
+  Date: 06/15/2022
+  Description: Displaying teams info in the console. 
+*/
+
+import { findTeams, findTeam, getGame } from "./team-manager.mjs";
+// import { findTeams } from "./team-manager.mjs";
 
 function displayTeams() {
   let TeamsArr = findTeams();
@@ -15,16 +22,15 @@ function displayTeams() {
   return teamsDisplay;
 }
 
-// function displayChampionshipGame() {
+function displayChampionshipGame() {
+  // let displayOne = teamOne.findTeam();
+  // let displayTwo = teamTwo.findTeam();
 
-//   let teamOne = findTeam("team1");
-//   let teamTwo = findTeam("team2");
+  let championshipGameDisplay = "--CHAMPIONSHIP GAME --";
+  championshipGameDisplay += "\n";
+  championshipGameDisplay += getGame();
+  return championshipGameDisplay;
+}
 
-//   let championshipGameString = "--CHAMPIONSHIP GAME --";
-//   championshipGameString += "\n";
-//   championshipGameString += getGame(teamOne, teamTwo);
-//   return championshipGameString;
-// }
-
-// console.log(displayTeams(), "\n", displayChampionshipGame());
-console.log(displayTeams());
+console.log(displayTeams(), "\n", displayChampionshipGame());
+// console.log(displayTeams());

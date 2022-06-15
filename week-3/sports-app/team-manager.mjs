@@ -1,10 +1,18 @@
+/*
+  Title: Assignment 3.2 - Node's Module System
+  Author: April Yang
+  Date: 06/15/2022
+  Description: Import Team class and built-in moment module.
+  Functions for creating and displaying teams info   
+*/
+
 import { Team } from "./team.mjs";
 
-// import momentPkg from "moment";
-// const { moment } = function momentPkg() {
-//   const date = moment();
-//   return date;
-// };
+import momentPkg from "moment";
+const { moment } = function momentPkg() {
+  const date = moment();
+  return date;
+};
 
 export function findTeams() {
   let teamsArr = [
@@ -17,18 +25,24 @@ export function findTeams() {
   return teamsArr;
 }
 
-// export function findTeam(name) {
-//   let allTeams = findTeams();
-//   let findName = allTeams.find((oneName) => oneName == name);
-//   return findName;
-// }
+export function findTeam(name) {
+  let allTeams = findTeams();
+  let findName = allTeams.find((oneName) => {
+    if (oneName.name === name) {
+      return true;
+    }
+  });
 
-// export function getGame(teamOne, teamTwo) {
+  console.log(findName, "team1");
+  return findName;
+}
 
-//   let formattedDate = momentPkg().add(7, "days").calendar();
-//   let msg = `${teamOne.name} ${teamOne.mascot} is playing ${teamTwo.name} ${teamTwo.mascot}
-//     on ${formattedDate} at 7:30 PM CST.`;
-//   return msg;
-// }
+export function getGame() {
+  let formattedDate = momentPkg().add(7, "days").calendar();
 
-// module.exports = { findTeams, findTeam, getGame };
+  let displayMeg = `${findTeam()} ${Team.mascot}
+    } is playing ${findTeam()} ${Team.mascot}
+}
+    on ${formattedDate} at 7:30 PM CST.`;
+  return displayMeg;
+}
