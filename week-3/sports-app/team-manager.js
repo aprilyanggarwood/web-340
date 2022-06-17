@@ -9,23 +9,23 @@
 const Team = require("./team");
 const moment = require("moment");
 
-let teamsArr =
-  Team[
-    (new Team("team1", "mascot1", "10"),
-    new Team("team2", "mascot2", "12"),
-    new Team("team3", "mascot3", "14"),
-    new Team("team4", "mascot4", "16"),
-    new Team("team5", "mascot5", "18"))
-  ];
+let teamsArr = [
+  new Team("team1", "mascot1", "10"),
+  new Team("team2", "mascot2", "12"),
+  new Team("team3", "mascot3", "14"),
+  new Team("team4", "mascot4", "16"),
+  new Team("team5", "mascot5", "18"),
+];
 
-let TeamsArray = [];
-TeamsArray.push(teamsArr);
+// let TeamsArray = [];
+// TeamsArray.push(teamsArr);
 
 function findTeams() {
-  return TeamsArray;
+  // return TeamsArray;
+  return teamsArr;
 }
 function findTeam(name) {
-  return TeamsArray.find((team) => {
+  return teamsArr.find((team) => {
     team.name === name;
   });
 }
@@ -51,10 +51,9 @@ function getGame() {
 
   let displayMeg = "--CHAMPIONSHIP GAME --";
   displayMeg += "\n";
-  displayMeg += `${findTeams[0].name} ${findTeams()[0].mascot}
-  is playing ${findTeams()[1].name} ${
-    findTeams()[1].mascot
-  } on ${formattedDate} at 7:30 PM CST.`;
+  displayMeg += `${findTeams()[0].name} ${findTeams()[0].mascot} is playing ${
+    findTeams()[1].name
+  } ${findTeams()[1].mascot} on ${formattedDate} at 7:30 PM CST.`;
   displayMeg += "\n";
   return displayMeg;
 }
