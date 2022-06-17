@@ -17,6 +17,14 @@ let teamsArr = [
   new Team("team5", "mascot5", "18"),
 ];
 
+// let teamOne = new Team("team1", "mascot1", "10");
+// let teamTwo = new Team("team2", "mascot2", "12");
+// let teamThree = new Team("team3", "mascot3", "14");
+// let teamFour = new Team("team4", "mascot4", "16");
+// let teamFive = new Team("team5", "mascot5", "18");
+
+// let teamsArr = [teamOne, teamTwo, teamThree, teamFour, teamFive];
+
 function findTeams() {
   return teamsArr;
 }
@@ -26,15 +34,15 @@ function findTeam(name) {
   });
 }
 
-console.log(findTeam, "team1");
+// console.log(findTeam, "team1");
 
 function displayTeams() {
   let TeamsArray = findTeams();
   let teamsDisplay = "-- DISPLAYING TEAMS --";
   TeamsArray.forEach((team) => {
     teamsDisplay += "\n";
-    teamsDisplay += "Name: " + team.name[0] + "\n";
-    teamsDisplay += "Mascot: " + team.mascot[0] + "\n";
+    teamsDisplay += "Name: " + team.name + "\n";
+    teamsDisplay += "Mascot: " + team.mascot + "\n";
     teamsDisplay += "Player Count: " + team.playerCount;
     teamsDisplay += "\n";
   });
@@ -42,7 +50,7 @@ function displayTeams() {
   return teamsDisplay;
 }
 
-function getGame(teamOne) {
+function getGame() {
   let formattedDate = moment().add(7, "days").calendar();
 
   let displayMeg = "--CHAMPIONSHIP GAME --";
@@ -58,10 +66,35 @@ function getGame(teamOne) {
   function displayAllTwo() {
     let teamsArr = findTeams();
     let randTeam2 = teamsArr[Math.floor(Math.random() * teamsArr.length)];
-    if (randTeam2 !== displayAllOne()) {
-      return randTeam2;
+    for (randTeam2 of teamsArr) {
+      if (randTeam2 !== displayAllOne()) return randTeam2;
     }
   }
+
+  // function displayAllTwo() {
+  //   let teamsArr = findTeams();
+  //   let randTeam2 =
+  //     teamsArr[Math.floor(Math.random() * (1 + teamsArr.length - 1))];
+  //   for (randTeam2 of teamsArr) {
+  //     if (randTeam2 !== displayAllOne()) return randTeam2;
+  //   }
+  // }
+
+  // function displayAllOne() {
+  //   let teamsArr = findTeams();
+  //   let randTeam1 = teamsArr[Math.floor(Math.random() * teamsArr.length) + 1];
+  //   for (randTeam1 of teamsArr) {
+  //     return randTeam1;
+  //   }
+  // }
+
+  // function displayAllTwo() {
+  //   let teamsArr = findTeams();
+  //   let randTeam2 = teamsArr[Math.floor(Math.random() * teamsArr.length) + 1];
+  //   if (randTeam2 !== displayAllOne()) {
+  //     return randTeam2;
+  //   }
+  // }
 
   displayMeg += "\n";
 
