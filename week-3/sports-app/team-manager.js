@@ -17,11 +17,7 @@ let teamsArr = [
   new Team("team5", "mascot5", "18"),
 ];
 
-// let TeamsArray = [];
-// TeamsArray.push(teamsArr);
-
 function findTeams() {
-  // return TeamsArray;
   return teamsArr;
 }
 function findTeam(name) {
@@ -37,8 +33,8 @@ function displayTeams() {
   let teamsDisplay = "-- DISPLAYING TEAMS --";
   TeamsArray.forEach((team) => {
     teamsDisplay += "\n";
-    teamsDisplay += "Name: " + team.name + "\n";
-    teamsDisplay += "Mascot: " + team.mascot + "\n";
+    teamsDisplay += "Name: " + team.name[0] + "\n";
+    teamsDisplay += "Mascot: " + team.mascot[0] + "\n";
     teamsDisplay += "Player Count: " + team.playerCount;
     teamsDisplay += "\n";
   });
@@ -46,14 +42,32 @@ function displayTeams() {
   return teamsDisplay;
 }
 
-function getGame() {
+function getGame(teamOne) {
   let formattedDate = moment().add(7, "days").calendar();
 
   let displayMeg = "--CHAMPIONSHIP GAME --";
+
+  function displayAllOne() {
+    let teamsArr = findTeams();
+    let randTeam1 = teamsArr[Math.floor(Math.random() * teamsArr.length)];
+    for (randTeam1 of teamsArr) {
+      return randTeam1;
+    }
+  }
+
+  function displayAllTwo() {
+    let teamsArr = findTeams();
+    let randTeam2 = teamsArr[Math.floor(Math.random() * teamsArr.length)];
+    if (randTeam2 !== displayAllOne()) {
+      return randTeam2;
+    }
+  }
+
   displayMeg += "\n";
-  displayMeg += `${findTeams()[0].name} ${findTeams()[0].mascot} is playing ${
-    findTeams()[1].name
-  } ${findTeams()[1].mascot} on ${formattedDate} at 7:30 PM CST.`;
+
+  displayMeg += `${displayAllOne().name} ${displayAllOne().mascot} is playing ${
+    displayAllTwo().name
+  } ${displayAllTwo().mascot} on ${formattedDate} at 7:30 PM CST.`;
   displayMeg += "\n";
   return displayMeg;
 }
