@@ -6,9 +6,12 @@
   Functions for creating and displaying teams info   
 */
 
+// import Team class from team module
 const Team = require("./team");
+// import moment.js module
 const moment = require("moment");
 
+// creates teams' data in array.
 let teamsArr = [
   new Team("team1", "mascot1", "10"),
   new Team("team2", "mascot2", "12"),
@@ -25,17 +28,19 @@ let teamsArr = [
 
 // let teamsArr = [teamOne, teamTwo, teamThree, teamFour, teamFive];
 
+// function for returning all teams' data
 function findTeams() {
   return teamsArr;
 }
+
+// function for finding a team name
 function findTeam(name) {
   return teamsArr.find((team) => {
     team.name === name;
   });
 }
 
-// console.log(findTeam, "team1");
-
+// function for displaying teams in a string
 function displayTeams() {
   let TeamsArray = findTeams();
   let teamsDisplay = "-- DISPLAYING TEAMS --";
@@ -50,11 +55,13 @@ function displayTeams() {
   return teamsDisplay;
 }
 
+// getGame function to display a string message include two teams' name and mascot, and play date and time
 function getGame() {
+  // date data from moment.js
   let formattedDate = moment().add(7, "days").calendar();
 
-  let displayMeg = "--CHAMPIONSHIP GAME --";
-
+  let displayMeg = "--CHAMPIONSHIP GAME --"; // message displays here
+  // function for finding the first team  (random method has not worked yet )
   function displayAllOne() {
     let teamsArr = findTeams();
     let randTeam1 = teamsArr[Math.floor(Math.random() * teamsArr.length)];
@@ -63,9 +70,10 @@ function getGame() {
     }
   }
 
+  // function for finding the second team  (random method has not worked yet )
   function displayAllTwo() {
     let teamsArr = findTeams();
-    let randTeam2 = teamsArr[Math.floor(Math.random() * teamsArr.length)];
+    let randTeam2 = teamsArr[Math.floor(Math.random() * teamsArr.length)]; // random doesn't work
     for (randTeam2 of teamsArr) {
       if (randTeam2 !== displayAllOne()) return randTeam2;
     }
@@ -97,7 +105,7 @@ function getGame() {
   // }
 
   displayMeg += "\n";
-
+  // displaying message in a string includes two teams' name and mascot, and play date and time
   displayMeg += `${displayAllOne().name} ${displayAllOne().mascot} is playing ${
     displayAllTwo().name
   } ${displayAllTwo().mascot} on ${formattedDate} at 7:30 PM CST.`;
@@ -105,6 +113,7 @@ function getGame() {
   return displayMeg;
 }
 
+// export functions to index.js
 module.exports = {
   displayTeams,
   getGame,

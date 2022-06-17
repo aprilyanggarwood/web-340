@@ -5,6 +5,7 @@
   Description: Displaying teams info in the console. 
 */
 
+// import functions from team-manager module
 const teams = require("./team-manager").displayTeams();
 const displayGetGame = require("./team-manager").getGame();
 

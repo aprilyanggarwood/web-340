@@ -5,6 +5,7 @@
   Description: Creates Team class and export module.
 */
 
+// creates and exports Team class
 class Team {
   constructor(name, mascot, playerCount) {
     this.name = name;
@@ -13,4 +14,5 @@ class Team {
   }
 }
 
+// export Team class to team-manager.js
 module.exports = Team;
